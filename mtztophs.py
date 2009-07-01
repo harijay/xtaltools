@@ -29,8 +29,16 @@ def getcellparams(scafile):
     spg = cellline[-1]
     return (cell,spg)
 
+#format '(3f4.0,f11.2,f8.2,f7.3,4f11.3)'
+# skipline 0
+# LABOUT H K L IP FOMS PHIS HLA HLB HLC HLD
+# CTYPOUT H H H I W P A A A A
+# END
+# e
+
 
 def main():
+    import sys
     try:
         sys.argv[1]
     except BaseException :
@@ -45,9 +53,9 @@ def main():
     script =  """SYMM %s
     CELL %s
     skipline
-    LABOUT H K L FP FOM PHIS X
-    CTYPOUT H H H F W P R
-    FORMAT '(3f4.0,f11.2,f8.2,f8.1,f8.2)'
+    LABOUT H K L FP FOM PHIS X HLA HLB HLC HLD
+    CTYPOUT H H H F W P R A A A A
+    FORMAT '(3f4.0,f11.2,f8.2,f8.1,f8.2,4f11.3)'
     END
     eof""" %(options.symm,cellparams)
     import subprocess

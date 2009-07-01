@@ -1,8 +1,8 @@
-import parser
 #! /usr/bin/python
 
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
+import parser
 
 __author__="hari"
 __date__ ="$Mar 27, 2009 8:52:03 AM$"
