@@ -48,6 +48,7 @@ class AtomDict(object):
                 pass
 
 def main():
+    import sys
     from optparse import OptionParser
     p = OptionParser()
     p.add_option("--atom" , "-a", dest="atom",help="Atom id for eg. Se " , metavar="Se")

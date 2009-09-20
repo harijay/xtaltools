@@ -29,6 +29,13 @@ def getcellparams(scafile):
     spg = cellline[-1]
     return (cell,spg)
 
+#format '(3f4.0,f11.2,f8.2,f7.3,4f11.3)'
+# skipline 0
+# LABOUT H K L IP FOMS PHIS HLA HLB HLC HLD
+# CTYPOUT H H H I W P A A A A
+# END
+# e
+
 
 def main():
     import sys
