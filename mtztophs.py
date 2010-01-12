@@ -53,9 +53,9 @@ def main():
     script =  """SYMM %s
     CELL %s
     skipline
-    LABOUT H K L FP FOM PHIS X HLA HLB HLC HLD
-    CTYPOUT H H H F W P R A A A A
-    FORMAT '(3f4.0,f11.2,f8.2,f8.1,f8.2,4f11.3)'
+    LABOUT H K L FP FOM PHIS SIG-FP
+    CTYPOUT H H H F W P Q
+    FORMAT '(3f4.0,f11.2,f8.2,f8.1,f8.2)'
     END
     eof""" %(options.symm,cellparams)
     import subprocess
