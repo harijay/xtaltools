@@ -62,6 +62,12 @@ class Converter(object):
         print "Converting  format to %s using %s " % ( format , self.program)
         base,name = os.path.split(self.infilepath)
         name_root = os.path.splitext(name)[0]
+        
+        # The coot file browser does not filter and show files ending with synonymous X-PLOR format 
+        # So converting it to CNS
+        
+        if format == "X-PLOR":
+            format = "CNS"
         outfile = os.path.join(base,"".join([name_root,".",format.lower()]))
         print os.path.join(base, outfile)
         if os.path.lexists(self.infilepath):
