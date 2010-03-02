@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#!/usr/bin/env python
 
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
@@ -48,6 +48,7 @@ class AtomDict(object):
                 pass
 
 def main():
+    import sys
     from optparse import OptionParser
     p = OptionParser()
     p.add_option("--atom" , "-a", dest="atom",help="Atom id for eg. Se " , metavar="Se")
