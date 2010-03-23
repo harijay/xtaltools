@@ -1,0 +1,50 @@
+This project contains a list of scripts intended to automate various aspects of structure analysis. 
+They are usually called from the command line and accept input from STDIN.
+A more detailed description of each program is given here
+
+1) anomalous_around.py 
+This program contacts the Periodic Table interface to X-ray absorption edges at the Biomolecular Structure Centre at University of Washington and obtains the F' and F'' values for a particular element around a particular wavelength in Å or an Energy in electron Volt (ev)
+
+for eg.
+
+$ python anomalous_around.py -a Se -w 1.001
+
+Indexed values for Value:12386.0323843, 12300.00 ('-3.071344', '0.5298917') 12400.00 ('-3.383753', '0.5221294') 12500.00 ('-3.863509', '0.5145381')
+
+Documentation:
+Usage: anomalous_around.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -a Se, --atom=Se      Atom id for eg. Se
+  -e [Energy ev], --energy=[Energy ev]
+                        Energy in ev
+  -w [wavelength], --wave=[wavelength]
+                        Wavelength in A
+
+2) clustal_align_to_pdbfig.py
+This program uses a typical pairwise clustal alignment and converts the "*" , ":" , "." and " " line in the  alignment to a numeric value and then replaces the B-factor record in the db file with 100,50,25 or 0 for a fully conserved(*) , Similar(:) , nearly similar (.)  or non-conserved residue
+
+Usage: clustal_align_to_pdbfig.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -i *.pdb, --infile=*.pdb
+  -a *.txt with alignment, --alignment=*.txt with alignment
+
+
+
+Sample input for this can be a screen copy paste of the alignment or the alignment file itself from a website like the Expasy clustaw site at 
+http://www.ebi.ac.uk/Tools/clustalw2/index.html
+
+3)compile_rsmd_to_bfac_column.py
+This program transfers the rms-distance between two aligned pdbs as output by coot to the B-factor column on all of the chains in the pdb [smarter version in the works]
+Usage: compile_rsmd_to_bfac_column.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -i *.pdb, --infile=*.pdb
+                        input file to append bfactors to
+  -s *.txt, --screedump=*.txt
+                        input file with screen dump after SSM superpose
+coercing to Unicode: need string or buffer, NoneType found
