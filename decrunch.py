@@ -13,6 +13,7 @@ def decrunch_alignment(file):
 			while not isheader.match(line):
 				try:
 					out = out + line.replace(".","")
+					out = out.replace("-","")
 					out = out.replace("\n","")
 					line = file.next()
 				except StopIteration as e:
