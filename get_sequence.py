@@ -25,7 +25,7 @@ class GetSequence(Cmd):
 		
 	def default(self,start_stop):
 		start,stop = start_stop.split("-")
-		print "Sequence[{}-{}]:".format(start,stop),"".join(self.sequence[int(start):int(stop)+1])
+		print "Sequence[{}-{}]:".format(start,stop),"".join(self.sequence[int(start)-1:int(stop)])
 	
 	def do_EOF(self, line):
 		return True
